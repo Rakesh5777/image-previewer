@@ -15,7 +15,7 @@ export class ImagePreviewSectionComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private imageDataHandler: ImageDataHandlerService,
+    public imageDataHandler: ImageDataHandlerService,
     private cd: ChangeDetectorRef,
   ) {
   }
@@ -28,15 +28,15 @@ export class ImagePreviewSectionComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   clearImages(): void {
     if (confirm('Are you sure you want to clear all images?')) {
       this.imagePaths = [];
       this.imageDataHandler.clearImageData();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }
