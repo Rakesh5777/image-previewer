@@ -6,7 +6,6 @@ export class ImageDataHandlerService {
 
   private imageData: File[] = [];
   private imagePaths = new BehaviorSubject<string[]>([]);
-  temp: any = '';
 
   constructor() { }
 
