@@ -1,27 +1,42 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ImagePreviewSectionComponent } from './image-preview-section/image-preview-section.component';
+import { ImageUploadSectionComponent } from './image-upload-section/image-upload-section.component';
+import { HeaderComponent } from './header/header.component';
+import { ImageDataHandlerService } from './image-data-handler.service';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        ImagePreviewSectionComponent,
+        ImageUploadSectionComponent,
+        HeaderComponent,
+      ],
+      providers: [
+        ImageDataHandlerService
+      ]
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'image-previewer'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('image-previewer');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('image-previewer app is running!');
+  it('should render the child components', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('image-previewer-header')).toBeTruthy();
+    expect(compiled.querySelector('image-upload-section')).toBeTruthy();
+    expect(compiled.querySelector('image-preview-section')).toBeTruthy();
   });
 });
