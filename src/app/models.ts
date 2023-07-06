@@ -1,0 +1,1 @@
+export type InputType = 'files' | 'folder';

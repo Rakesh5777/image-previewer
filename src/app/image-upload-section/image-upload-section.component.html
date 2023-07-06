@@ -1,0 +1,28 @@
+<div *ngIf="true" (dragover)="$event.preventDefault()" (drop)="handleDrop($event)"
+    class="card-container upload-section">
+    <label *ngIf="isFilesInput" for="import" class="input-label flex-center">
+        <div class="pointer">
+            <div class="grey-text">Drop your image(s) here or <span class="highlight">Browse</span></div>
+        </div>
+        <input type="file" id="import" class="display-none" multiple accept=".png,.jpg,.jpeg,.gif,.svg,.webp"
+            (change)="handleImport($event)">
+    </label>
+    <label *ngIf="isFolderInput" for="import" class="input-label flex-center">
+        <div class="pointer">
+            <div class="grey-text">Click here to <span class="highlight">Choose folder</span></div>
+        </div>
+        <input type="file" id="import" class="display-none" (change)="handleImport($event)" webkitdirectory>
+    </label>
+    <div class="footer grey-text">
+        <div class="select-container">
+            <div>File type -</div>
+            <div class="options-container">
+                <div [class.selected]="isFilesInput" (click)="inputType = 'files'" class="option">Image</div>
+                <div class="vertical-line"></div>
+                <div [class.selected]="isFolderInput" (click)="inputType = 'folder'" class="option">Folder</div>
+            </div>
+        </div>
+        <div class="imported-count"> Imported - <span class="highlight">{{importedImagesCount}}</span>
+        </div>
+    </div>
+</div>

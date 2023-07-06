@@ -1,0 +1,11 @@
+<div class="card-container preview-section">
+    <ng-container *ngIf="!!imagePaths.length">
+        <div class="images-container">
+            <div *ngFor="let imagePath of imagePaths">
+                <img loading="lazy" [lazyLoadImg]="imagePath" alt="image preview" class="image">
+            </div>
+        </div>
+        <button class="button" (click)="clearImages()">Clear</button>
+    </ng-container>
+    <div *ngIf="!imagePaths.length" class="no-images-text grey-text">Kindly upload images to preview</div>
+</div>
