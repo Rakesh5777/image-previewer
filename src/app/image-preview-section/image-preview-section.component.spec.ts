@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImagePreviewSectionComponent } from './image-preview-section.component';
 import { ImageDataHandlerService } from '../image-data-handler.service';
 import { Observable, of } from 'rxjs';
