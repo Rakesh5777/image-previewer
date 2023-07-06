@@ -17,9 +17,9 @@
         <div class="select-container">
             <div>File type -</div>
             <div class="options-container">
-                <div [class.selected]="isFilesInput" (click)="inputType = 'files'" class="option">Image</div>
+                <div id="files" [class.selected]="isFilesInput" (click)="inputType = 'files'" class="option">Image</div>
                 <div class="vertical-line"></div>
-                <div [class.selected]="isFolderInput" (click)="inputType = 'folder'" class="option">Folder</div>
+                <div id="folder" [class.selected]="isFolderInput" (click)="inputType = 'folder'" class="option">Folder</div>
             </div>
         </div>
         <div class="imported-count"> Imported - <span class="highlight">{{importedImagesCount}}</span>
